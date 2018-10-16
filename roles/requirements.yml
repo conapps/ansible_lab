@@ -1,0 +1,7 @@
+# from galaxy
+
+# Ansible install role
+- src: geerlingguy.ansible
+
+# NodeJS install role
+- src: geerlingguy.docker
