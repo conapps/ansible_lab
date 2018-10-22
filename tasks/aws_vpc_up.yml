@@ -24,6 +24,7 @@
   ec2_vpc_subnet:
     state: present
     vpc_id: '{{net.vpc.id}}'
+    region: '{{aws_region}}'
     cidr: '{{aws_management_subnet_cidr}}'
     tags:
       Name: '{{aws_management_subnet_name}}'
@@ -35,6 +36,7 @@
     state: present
     vpc_id: '{{net.vpc.id}}'
     cidr: '{{aws_tunnel1_subnet_cidr}}'
+    region: '{{aws_region}}'
     tags:
       Name: '{{aws_tunnel1_subnet_name}}'
       Pod: '{{lab_pod | string}}'
@@ -45,6 +47,7 @@
     state: present
     vpc_id: '{{net.vpc.id}}'
     cidr: '{{aws_tunnel2_subnet_cidr}}'
+    region: '{{aws_region}}'
     tags:
       Name: '{{aws_tunnel2_subnet_name}}'
       Pod: '{{lab_pod | string}}'
@@ -55,6 +58,7 @@
     state: present
     vpc_id: '{{net.vpc.id}}'
     cidr: '{{aws_spoke1_subnet_cidr}}'
+    region: '{{aws_region}}'
     tags:
       Name: '{{aws_spoke1_subnet_name}}'
       Pod: '{{lab_pod | string}}'
@@ -65,6 +69,7 @@
     state: present
     vpc_id: '{{net.vpc.id}}'
     cidr: '{{aws_spoke2_subnet_cidr}}'
+    region: '{{aws_region}}'
     tags:
       Name: '{{aws_spoke2_subnet_name}}'
       Pod: '{{lab_pod | string}}'
