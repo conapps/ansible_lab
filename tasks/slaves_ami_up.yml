@@ -51,10 +51,10 @@
     name: '{{ slave1.private_ip }}'
     groups: slaves
     slave: 1
-    ansible_ssh_private_key_file: secret_vars/key_pair_{{ lab_pod | string }}
+    ansible_ssh_private_key_file: '{{aws_key_pair}}'
     ansible_user: '{{ ec2_server_ansible_ssh_user }}'
     ansible_python_interpreter: '{{ ec2_server_ansible_python_interpreter }}'
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i secret_vars/key_pair_{{ lab_pod | string }} -q {{ec2_server_ansible_ssh_user}}@{{MASTER_PUBLIC_IP}}"'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i {{aws_key_pair}} -q {{ec2_server_ansible_ssh_user}}@{{MASTER_PUBLIC_IP}}"'
 
 - name: Launch the Slave02 AMI
   ec2:
@@ -109,7 +109,7 @@
     name: '{{ slave2.private_ip }}'
     groups: slaves
     slave: 2
-    ansible_ssh_private_key_file: secret_vars/key_pair_{{ lab_pod | string }}
+    ansible_ssh_private_key_file: '{{aws_key_pair}}'
     ansible_user: '{{ ec2_server_ansible_ssh_user }}'
     ansible_python_interpreter: '{{ ec2_server_ansible_python_interpreter }}'
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i secret_vars/key_pair_{{ lab_pod | string }} -q {{ec2_server_ansible_ssh_user}}@{{MASTER_PUBLIC_IP}}"'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i {{aws_key_pair}} -q {{ec2_server_ansible_ssh_user}}@{{MASTER_PUBLIC_IP}}"'
