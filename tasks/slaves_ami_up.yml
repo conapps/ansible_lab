@@ -9,7 +9,6 @@
     region: '{{ aws_region }}'
     keypair: '{{ KEY_PAIR }}'
     vpc_subnet_id: '{{ SPOKE1_SUBNET }}'
-    assign_public_ip: no
     instance_tags:
       Name: '{{ ec2_slave_server1_name }}'
       Pod: '{{lab_pod | string}}'
@@ -68,7 +67,6 @@
     region: '{{ aws_region }}'
     keypair: '{{ KEY_PAIR }}'
     vpc_subnet_id: '{{ SPOKE2_SUBNET }}'
-    assign_public_ip: no
     instance_tags:
       Name: '{{ ec2_slave_server2_name }}'
       Pod: '{{lab_pod | string}}'
