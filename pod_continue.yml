@@ -14,3 +14,4 @@
         name: conatest_lab_helpers_vars
   vars_files:
     - ./vars/pod.yml
+    - ./secret_vars/lab_helpers.yml
