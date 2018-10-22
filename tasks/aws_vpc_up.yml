@@ -124,6 +124,7 @@
 
 - name: Gather Security Group facts
   ec2_group_facts:
+    region: '{{aws_region}}'
     filters:
       vpc-id: '{{net.vpc.id}}'
   register: security_group_facts
