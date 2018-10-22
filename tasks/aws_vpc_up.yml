@@ -104,7 +104,7 @@
 
 - name: 'Create {{ aws_key_pair_name }} file inside the secret_vars directory'
   lineinfile:
-    dest: 'secret_vars/{{aws_key_pair_name}}'
+    dest: 'secret_vars/{{aws_key_pair_name}}.pem'
     line: '{{pair.key.private_key}}'
     create: yes
 
@@ -141,7 +141,7 @@
     rules_egress:
       - proto: all
         cidr_ip: 0.0.0.0/0
-  register: sg
+  register: sg 
 
 - name: 'Create {{ secret_vars_file_name }}.yml file inside the secret_vars directory'
   lineinfile:
@@ -169,6 +169,5 @@
     - { regexp: 'tunnel2_subnet', line: '{{tunnel2.subnet.id}}' }
     - { regexp: 'spoke1_subnet', line: '{{spoke1.subnet.id}}' }
     - { regexp: 'spoke2_subnet', line: '{{spoke2.subnet.id}}' }
-
 
 - include_vars: "secret_vars/{{ secret_vars_file_name }}.yml"

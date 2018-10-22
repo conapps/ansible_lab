@@ -1,0 +1,22 @@
+- include_role:
+    name: conatest_lab_helpers_auth
+    public: yes
+  when: access_token is undefined
+
+- name: Guardamos los archivos en la API
+  uri:
+    url: '{{lab_helpers_url}}/api/v1/uploads/text/'
+    method: POST
+    body:
+      text: '{{lookup("file", item)}}'
+      filename: '{{item}}'
+    body_format: json
+    headers:
+      'Content-Type': 'application/json'
+      'Authorization': 'Bearer {{access_token}}'
+    return_content: true
+  loop: '{{text_files}}'
+  register: output
+
+- debug:
+    var: output

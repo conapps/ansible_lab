@@ -1,0 +1,16 @@
+- name: Obtenemos las credenciales de acceso a la API de 'lab_helpers'
+  uri:
+    url: '{{lab_helpers_url}}/api/auth/login/'
+    method: POST
+    body:
+      email: '{{lab_helpers_email}}'
+      password: '{{lab_helpers_password}}'
+    body_format: json
+    headers:
+      'Content-Type': 'application/json'
+    return_content: yes
+  register: output
+
+- name: Registramos el token de acceso en una variable
+  set_fact:
+    access_token: '{{output["json"]["accessToken"]}}'
