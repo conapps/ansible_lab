@@ -13,6 +13,7 @@
 - name: Delete the key pair
   ec2_key:
     name: '{{aws_key_pair_name}}'
+    region: '{{aws_region}}'
     state: absent
 
 - name: Delete the management subnet

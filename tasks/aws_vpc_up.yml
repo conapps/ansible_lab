@@ -104,6 +104,7 @@
 
 - name: create a new ec2 key pair, returns generated private key
   ec2_key:
+    region: '{{aws_region}}'
     name: '{{aws_key_pair_name}}'
   register: pair
 
