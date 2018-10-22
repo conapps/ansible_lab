@@ -110,13 +110,13 @@
 
 - name: 'Create {{ aws_key_pair_name }} file inside the secret_vars directory'
   lineinfile:
-    dest: 'secret_vars/{{aws_key_pair_name}}.pem'
+    dest: '{{aws_key_pair}}'
     line: '{{pair.key.private_key}}'
     create: yes
 
 - name: 'Change permissions of the key file'
   file:
-    path: 'secret_vars/{{aws_key_pair_name}}'
+    path: '{{aws_key_pair}}'
     mode: 0600
 
 - name: Gather Security Group facts
@@ -166,7 +166,7 @@
     - { regexp: 'igw', line: '{{ igw.gateway_id }}' }
     - { regexp: 'route_table_id', line: '{{rt.route_table.route_table_id}}' }
     - { regexp: 'key_pair', line: '{{aws_key_pair_name}}' }
-    - { regexp: 'key_pair_path', line: 'secret_vars/{{aws_key_pair_name}}' }
+    - { regexp: 'key_pair_path', line: '{{aws_key_pair}}' }
     - { regexp: 'security_group', line: '{{sg.group_id}}' }
     - { regexp: 'management_subnet', line: '{{management.subnet.id}}' }
     - { regexp: 'management_subnet_cidr', line: '{{aws_management_subnet_cidr}}' }

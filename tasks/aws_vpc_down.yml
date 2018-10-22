@@ -77,6 +77,6 @@
     warn: False
     
 - name: Clean Pod Key Pair
-  shell: '/bin/rm -rf secret_vars/{{aws_key_pair_name}}'
+  shell: '/bin/rm -rf {{aws_key_pair}}'
   args:
     warn: False
