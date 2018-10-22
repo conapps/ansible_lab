@@ -70,3 +70,8 @@ spoke1_dns_record: 'spoke1-{{ lab_pod }}.{{lab_domain}}'
 spoke2_server_name: 'Spoke 2 Router #{{ lab_pod }}'
 spoke2_server_private_ip: 
 spoke2_dns_record: 'spoke2-{{ lab_pod }}.{{lab_domain}}'
+
+vars_file_path: 'secret_vars/pod_{{lab_pod}}.yml'
+text_files:
+  - 'secret_vars/{{aws_key_pair_name}}.pem'
+lab_helpers_document_id: '{{lab_name}}_pod_{{lab_pod}}'

@@ -59,11 +59,6 @@
   hosts: 127.0.0.1
   connection: local
   gather_facts: no
-  vars:
-    vars_file_path: 'secret_vars/pod_{{lab_pod}}.yml'
-    text_files:
-      - 'secret_vars/{{aws_key_pair_name}}.pem'
-    lab_helpers_document_id: '{{lab_name}}_pod_{{lab_pod}}'
   tasks:
     - include_role:
         name: conatest_lab_helpers_text_files
