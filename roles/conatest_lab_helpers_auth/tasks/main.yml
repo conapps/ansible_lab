@@ -1,3 +1,8 @@
+- debug:
+    var: lab_helpers_email
+- debug: 
+    var: lab_helpers_password
+
 - name: Obtenemos las credenciales de acceso a la API de 'lab_helpers'
   uri:
     url: '{{lab_helpers_url}}/api/auth/login/'
