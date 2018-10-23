@@ -82,9 +82,6 @@
       vpc-id: '{{net.vpc.id}}'
   register: route_tables_facts
 
-- debug:
-    var: route_tables_facts
-
 - name: Set Route Tables fact
   set_fact:
     rt: '{{route_tables_facts.route_tables[0]}}'
