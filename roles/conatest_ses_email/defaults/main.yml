@@ -4,4 +4,4 @@ to_email: prueba@mailinator.com
 from_email: notification@mail.conatest.click
 subject: Email Subject
 body: Email Body
-subtype: text
+subtype: plain
