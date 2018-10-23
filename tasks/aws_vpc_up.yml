@@ -130,7 +130,7 @@
   set_fact:
     sg: '{{security_group_facts.security_groups[0]}}'
 
-- name: Create the Security Group
+- name: Edit the default security group
   ec2_group:
     name: '{{sg.group_name}}'
     group_id: '{{sg.group_id}}'

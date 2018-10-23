@@ -23,7 +23,7 @@
   route53:
     state: present
     zone: '{{lab_domain}}'
-    record: 'master-{{ lab_pod }}.{{lab_domain}}'
+    record: '{{ec2_server_dns_record}}'
     type: A
     value: '{{ ec2.public_ip }}'
     wait: yes
@@ -45,7 +45,7 @@
     line: "{{ item.regexp | upper }}: {{ '\"' + item.line + '\"' }}"
   with_items:
     - { regexp: 'master_public_ip', line: '{{ ec2.public_ip }}' }
-    - { regexp: 'master_public_dns', line: 'master-{{ lab_pod }}.{{lab_domain}}'}
+    - { regexp: 'master_public_dns', line: '{{ec2_server_dns_record}}'}
 
 - include_vars: 'secret_vars/{{ secret_vars_file_name }}.yml'
 

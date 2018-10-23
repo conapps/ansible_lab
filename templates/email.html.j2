@@ -454,10 +454,10 @@
                         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 30px; padding-top: 10px; padding-bottom: 5px;"><![endif]-->
                         <div style="color:#555555;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:120%; padding-right: 10px; padding-left: 30px; padding-top: 10px; padding-bottom: 5px;">
                           <div style="font-size:12px;line-height:14px;color:#555555;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;text-align:left;">
-                            <p style="margin: 0;font-size: 14px;line-height: 17px"><strong><span style="font-size: 24px; line-height: 28px;">Estimad@,</span></strong></p>
+                            <p style="margin: 0;font-size: 14px;line-height: 17px"><strong><span style="font-size: 24px; line-height: 28px;">Bienvenidos al curso "Advanced Network Programmability"</span></strong></p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px">&#160;</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px"><span style="font-size: 14px; line-height: 16px;"><span
-                                  style="line-height: 16px; font-size: 14px;">Su POD #{{lab_pod}} esta listo! A
+                                  style="line-height: 16px; font-size: 14px;">Su POD #{{lab_pod}} en la región <code>{{aws_region}}</code> de amazon esta listo! A
                                   continuación se incluyen los datos necesarios para conectarse al mismo.</span></span></p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px">&#160;</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px"><strong><span style="font-size: 14px; line-height: 16px;"><span
@@ -511,11 +511,11 @@
                         <div style="color:#FFFFFF;line-height:120%;font-family:'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
                           <div style="font-size:12px;line-height:14px;font-family:'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;color:#FFFFFF;text-align:left;">
                             <p style="margin: 0;font-size: 14px;line-height: 17px"># Master Host</p>
-                            <p style="margin: 0;font-size: 14px;line-height: 17px">ssh -i {{aws_key_pair_name}}
+                            <p style="margin: 0;font-size: 14px;line-height: 17px">ssh -i {{aws_key_pair_name}}.pem
                               ubuntu@{{MASTER_PUBLIC_DNS}}</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px">&#160;</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px"># Hub Router</p>
-                            <p style="margin: 0;font-size: 14px;line-height: 17px">ssh -i {{aws_key_pair_name}}
+                            <p style="margin: 0;font-size: 14px;line-height: 17px">ssh -i {{aws_key_pair_name}}.pem
                               ec2-user@{{HUB_PUBLIC_DNS}}</p>
                           </div>
                         </div>
@@ -629,7 +629,7 @@
                         <div style="color:#555555;line-height:120%;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
                           <div style="font-size:12px;line-height:14px;color:#555555;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;text-align:left;">
                             <p style="margin: 0;font-size: 14px;line-height: 17px">Por cualquier consulta consulte a
-                              sus instructores</p>
+                              sus instructores.</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px">&#160;</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px">Muchas gracias,</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px">&#160;</p>
