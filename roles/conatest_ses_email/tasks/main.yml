@@ -1,0 +1,15 @@
+# ---
+# email.yml
+#
+# Playbook para probar el envío de emails.
+# ---
+- name: Sending an e-mail using AWS SES SMTP servers
+  mail:
+    host: '{{smtp_host}}'
+    port: '{{smtp_port}}'
+    username: '{{ses_smtp_username}}'
+    password: '{{ses_smtp_password}}'
+    from: '{{from_email}}'
+    to: '{{to_email}}'
+    subject: '{{subject}}'
+    body: '{{body}}'

@@ -4,7 +4,7 @@ lab_domain: labs.conatest.click
 
 aws_region: 'us-east-1'
 
-secret_vars_file_name: 'pod_{{lab_pod}}'
+secret_vars_file_name: 'pod_{{aws_region}}_{{lab_pod}}'
 
 networking_server_ansible_ssh_user: 'ec2-user'
 networking_server_ansible_ssh_port: 22
@@ -41,7 +41,7 @@ aws_spoke2_subnet_name: 'Spoke 2 Subnet #{{ lab_pod }}'
 
 aws_igw_name: 'IGW #{{ lab_pod }}'
 aws_route_table_name: 'Route Table #{{ lab_pod }}'
-aws_key_pair_name: 'key_pair_{{lab_pod}}'
+aws_key_pair_name: 'key_pair_{{aws_region}}_{{lab_pod}}'
 aws_key_pair: 'secret_vars/{{aws_key_pair_name}}.pem'
 aws_security_group_name: 'Security Group #{{lab_pod}}'
 
@@ -53,26 +53,31 @@ ec2_server_name: 'Management Server #{{ lab_pod }}'
 ec2_server_group: 'master'
 
 ec2_slave_server1_name: 'Slave Server 1 #{{ lab_pod }}'
-ec2_server_slave1_dns_record: 'slave-1-{{ lab_pod }}.{{lab_domain}}'
+ec2_server_slave1_dns_record: 'slave-1-{{aws_region}}-{{ lab_pod }}.{{lab_domain}}'
 
 ec2_slave_server2_name: 'Slave Server 2 #{{ lab_pod }}'
-ec2_server_slave2_dns_record: 'slave-2-{{ lab_pod }}.{{lab_domain}}'
+ec2_server_slave2_dns_record: 'slave-2-{{aws_region}}-{{ lab_pod }}.{{lab_domain}}'
 
 ec2_slave_servers_group: 'slaves'
 
 hub_server_name: 'Hub Router #{{ lab_pod }}'
 hub_server_private_ip: 
-hub_dns_record: 'hub-{{ lab_pod }}.{{lab_domain}}'
+hub_dns_record: 'hub-{{aws_region}}-{{ lab_pod }}.{{lab_domain}}'
 
 spoke1_server_name: 'Spoke 1 Router #{{ lab_pod }}'
 spoke1_server_private_ip: 
-spoke1_dns_record: 'spoke1-{{ lab_pod }}.{{lab_domain}}'
+spoke1_dns_record: 'spoke1-{{aws_region}}-{{ lab_pod }}.{{lab_domain}}'
 
 spoke2_server_name: 'Spoke 2 Router #{{ lab_pod }}'
 spoke2_server_private_ip: 
-spoke2_dns_record: 'spoke2-{{ lab_pod }}.{{lab_domain}}'
+spoke2_dns_record: 'spoke2-{{aws_region}}-{{ lab_pod }}.{{lab_domain}}'
 
-vars_file_path: 'secret_vars/pod_{{lab_pod}}.yml'
+vars_file_path: 'secret_vars/pod_{{aws_region}}_{{lab_pod}}.yml'
 text_files:
   - '{{aws_key_pair}}'
-lab_helpers_document_id: '{{lab_name}}_pod_{{lab_pod}}'
+lab_helpers_document_id: '{{lab_name}}_pod_{{aws_region}}_{{lab_pod}}'
+
+from_email: ansibletower@mail.conatest.click
+to_email: gmonne@conatel.com.uy
+subject: '{{lab_name | upper}} - Pod #{{lab_pod}} Ready'
+body: "{{lookup('template', '../templates/email.html.j2')}}"

@@ -64,5 +64,7 @@
         name: conatest_lab_helpers_text_files
     - include_role:
         name: conatest_lab_helpers_vars
+    - include_role:
+        name: conatest_ses_email
   vars_files:
     - ./vars/pod.yml

@@ -1,0 +1,6 @@
+smtp_host: email-smtp.us-east-1.amazonaws.com
+smtp_port: 587
+to_email: prueba@mailinator.com
+from_email: notification@mail.conatest.click
+subject: Email Subject
+body: Email Body
