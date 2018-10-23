@@ -29,6 +29,8 @@
     wait: yes
     overwrite: true
   register: dns
+  async: 1
+  poll: 0
 
 - name: 'Create {{ secret_vars_file_name }}.yml file inside the secret_vars directory'
   lineinfile:
@@ -110,6 +112,8 @@
     wait: yes
     overwrite: true
   register: dns
+  async: 1
+  poll: 0
 
 - name: 'Create {{ secret_vars_file_name }}.yml file inside the secret_vars directory'
   lineinfile:

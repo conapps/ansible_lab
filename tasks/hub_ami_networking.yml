@@ -1,6 +1,6 @@
 - include_vars: 'secret_vars/{{ secret_vars_file_name }}.yml'
 
-- name: Activate RESTCONF on the routers
+- name: Activate RESTCONF on the router
   ios_config:
     lines:
       - restconf
@@ -10,7 +10,7 @@
   ios_config:
     lines:
       - description Conexión con Red Spoke1
-      - ip address 10.1.201.254 255.255.255.0
+      - 'ip address 10.{{lab_pod}}.201.254 255.255.255.0'
       - no shutdown
     parents: interface GigabitEthernet2
 
@@ -18,7 +18,7 @@
   ios_config:
     lines:
       - description Conexión con Red Spoke1
-      - ip address 10.1.202.254 255.255.255.0
+      - 'ip address 10.{{lab_pod}}.202.254 255.255.255.0'
       - no shutdown
     parents: interface GigabitEthernet3
 

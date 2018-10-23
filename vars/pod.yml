@@ -81,3 +81,4 @@ from_email: ansibletower@mail.conatest.click
 to_email: gmonne@conatel.com.uy
 subject: '{{lab_name | upper}} - Pod #{{lab_pod}} Ready'
 body: "{{lookup('template', '../templates/email.html.j2')}}"
+subtype: html

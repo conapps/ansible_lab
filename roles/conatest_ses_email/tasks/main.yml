@@ -13,3 +13,4 @@
     to: '{{to_email}}'
     subject: '{{subject}}'
     body: '{{body}}'
+    subtype: '{{subtype}}'

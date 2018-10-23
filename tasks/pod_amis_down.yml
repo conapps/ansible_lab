@@ -5,15 +5,21 @@
       'tag:Pod': '{{lab_pod | string}}'
   register: amis
 
-- name: Echo instance ids
-  debug:
-    msg: '{{ item.instance_id }}'
-  with_items: '{{ amis.instances }}'
-
 - name: Kill Pod #{{lab_pod}} EC2 Instances
   ec2:
     instance_ids: '{{ item.instance_id }}'
     state: absent
     region: '{{aws_region}}'
     wait: yes
-  with_items: '{{ amis.instances }}'
+  loop: '{{ amis.instances }}'
+  register: ec2_instances
+  async: 7200
+  poll: 0
+
+- name: Wait for instance termination to complete
+  async_status:
+    jid: '{{item.ansible_job_id}}'
+  register: ec2_terminate_jobs
+  until: ec2_terminate_jobs.finished
+  retries: 300
+  loop: '{{ec2_instances.results}}'
