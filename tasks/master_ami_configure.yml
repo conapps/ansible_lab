@@ -114,7 +114,7 @@
 
 - name: Symlink the ansible_lab folder to the user home
   file:
-    src: '/home/ubuntu/devops_101/Advanced Network Programmability/ansible_lab'
+    src: '/home/ubuntu/devops_101/Advanced Network Programmability/dia_2/ansible_lab'
     dest: '/home/ubuntu/ansible_lab'
     state: link
     owner: '{{ ec2_server_ansible_ssh_user }}'
