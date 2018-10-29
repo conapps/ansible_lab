@@ -22,4 +22,5 @@
   register: ec2_terminate_jobs
   until: ec2_terminate_jobs.finished
   retries: 300
+  delay: 120
   loop: '{{ec2_instances.results}}'
