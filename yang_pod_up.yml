@@ -13,7 +13,7 @@
   hosts: master
   become: true
   tasks:
-    - include_tasks: ./tasks/master_ami_configure.yml
+    - include_tasks: ./tasks/yang_master_ami_configure.yml
   vars_files:
     - ./vars/yang_pod.yml
 
