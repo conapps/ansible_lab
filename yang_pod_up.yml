@@ -1,0 +1,32 @@
+- name: Initialize AWS Infrastructure
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - include_tasks: ./tasks/aws_vpc_up.yml
+    - include_tasks: ./tasks/master_ami_up.yml
+    - include_tasks: ./tasks/hub_ami_up.yml
+  vars_files:
+    - ./vars/yang_pod.yml
+
+- name: Configure the Master AMI
+  hosts: master
+  become: true
+  tasks:
+    - include_tasks: ./tasks/master_ami_configure.yml
+  vars_files:
+    - ./vars/yang_pod.yml
+
+- name: Save variables online
+  hosts: 127.0.0.1
+  connection: local
+  gather_facts: no
+  tasks:
+    - include_role:
+        name: conatest_lab_helpers_text_files
+    - include_role:
+        name: conatest_lab_helpers_vars
+    - include_role:
+        name: conatest_ses_email
+  vars_files:
+    - ./vars/yang_pod.yml

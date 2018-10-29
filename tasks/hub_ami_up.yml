@@ -26,7 +26,7 @@
     zone: '{{lab_domain}}'
     record: '{{ hub_dns_record }}'
     type: A
-    value: '{{ hub.private_ip }}'
+    value: '{{ hub.public_ip }}'
     wait: yes
     overwrite: true
   register: dns
