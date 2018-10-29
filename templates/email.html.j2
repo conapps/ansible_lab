@@ -512,6 +512,8 @@
                         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
                         <div style="color:#FFFFFF;line-height:120%;font-family:'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
                           <div style="font-size:12px;line-height:14px;font-family:'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;color:#FFFFFF;text-align:left;">
+                            <p style="margin: 0;font-size: 14px;line-height: 17px"># Modificar permisos a la clave</p>
+                            <p style="margin: 0;font-size: 14px;line-height: 17px">chmod 400 {{aws_key_pair_name}}.pem</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px"># Master Host</p>
                             <p style="margin: 0;font-size: 14px;line-height: 17px">ssh -i {{aws_key_pair_name}}.pem
                               ubuntu@{{MASTER_PUBLIC_DNS}}</p>
