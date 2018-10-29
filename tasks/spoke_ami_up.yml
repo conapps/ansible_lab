@@ -4,7 +4,7 @@
     count: 1
     private_ip: '{{aws_tunnel1_subnet_class_default}}.253'
     instance_type: 't2.medium'
-    image: 'ami-062f4179'
+    image: '{{images["csr1000"][aws_region]}}'
     wait: yes
     source_dest_check: no
     region: '{{ aws_region }}'
@@ -87,7 +87,7 @@
     count: 1
     private_ip: '{{aws_tunnel2_subnet_class_default}}.253'
     instance_type: 't2.medium'
-    image: 'ami-062f4179'
+    image: '{{images["csr1000"][aws_region]}}'
     wait: yes
     source_dest_check: no
     region: '{{ aws_region }}'

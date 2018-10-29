@@ -4,7 +4,7 @@
     count: 1
     instance_type: 't2.medium'
     private_ip: '{{aws_management_subnet_class_default}}.254'
-    image: 'ami-062f4179'
+    image: '{{images["csr1000"][aws_region]}}'
     wait: yes
     region: '{{ aws_region }}'
     keypair: '{{ KEY_PAIR }}'

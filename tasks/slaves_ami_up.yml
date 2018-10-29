@@ -3,7 +3,7 @@
     group_id: '{{ SECURITY_GROUP }}'
     count: 1
     instance_type: 't2.medium'
-    image: 'ami-0ac019f4fcb7cb7e6'
+    image: '{{images["ubuntu"][aws_region]}}'
     private_ip: '{{aws_spoke1_subnet_class_default}}.100'
     wait: yes
     region: '{{ aws_region }}'
@@ -63,7 +63,7 @@
     group_id: '{{ SECURITY_GROUP }}'
     count: 1
     instance_type: 't2.medium'
-    image: 'ami-0ac019f4fcb7cb7e6'
+    image: '{{images["ubuntu"][aws_region]}}'
     private_ip: '{{aws_spoke2_subnet_class_default}}.100'
     wait: yes
     region: '{{ aws_region }}'

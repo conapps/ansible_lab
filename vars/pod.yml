@@ -2,6 +2,22 @@ lab_name: ansible_lab
 lab_pod: 1
 lab_domain: labs.conatest.click
 
+images:
+  csr1000:
+    'us-east-1': 'ami-062f4179'
+    'us-east-2': 'ami-5d734c38'
+    'us-west-1': 'ami-85a9b2e5'
+    'us-west-2': 'ami-6f96ed17'
+    'ca-central-1': 'ami-cde665a9'
+    'sa-east-1': 'ami-e5ebb589'
+  ubuntu:
+    'us-east-1': 'ami-0ac019f4fcb7cb7e6'
+    'us-east-2': 'ami-0f65671a86f061fcd'
+    'us-west-1': 'ami-063aa838bd7631e0b'
+    'us-west-2': 'ami-0bbe6b35405ecebdb'
+    'ca-central-1': 'ami-0427e8367e3770df1'
+    'sa-east-1': 'ami-03c6239555bb12112'
+
 aws_region: 'us-east-1'
 
 secret_vars_file_name: '{{lab_name}}_pod_{{aws_region}}_{{lab_pod}}'
