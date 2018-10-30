@@ -17,6 +17,14 @@
   vars_files:
     - ./vars/yang_pod.yml
 
+- name: Configure the Hub AMI
+  hosts: hub
+  become: true
+  tasks:
+    - include_tasks: ./tasks/yang_hub_ami_configure.yml
+  vars_file:
+    - ./vars/yang_pod.yml
+
 - name: Save variables online
   hosts: 127.0.0.1
   connection: local

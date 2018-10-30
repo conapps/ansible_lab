@@ -1,0 +1,10 @@
+- include_vars: 'secret_vars/{{ secret_vars_file_name }}.yml'
+
+- name: Create the conatel user
+  ios_user:
+    configured_password: conatel
+    name: conatel
+    privilege: 15
+    state: present
+    update_password: always
+    nopassword: no
