@@ -104,6 +104,16 @@
     - docker-compose
     - grip
 
+- name: Ensure group "docker" exists
+  group:
+    name: docker
+    state: present
+
+- name: Add the user 'ubunntu' to the docker group
+  user:
+    name: ubuntu
+    group: docker
+
 - name: Clone Devops 101 repo
   git:
     repo: 'https://github.com/conapps/Devops-101.git'
