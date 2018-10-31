@@ -109,7 +109,7 @@
     name: docker
     state: present
 
-- name: Add the user 'ubunntu' to the docker group
+- name: Add the user 'ubuntu' to the docker group
   user:
     name: ubuntu
     group: docker
