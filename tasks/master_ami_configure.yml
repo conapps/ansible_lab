@@ -129,10 +129,3 @@
     state: link
     owner: '{{ ec2_server_ansible_ssh_user }}'
     group: '{{ ec2_server_ansible_ssh_user }}'
-
-- name: Run the lab
-  docker_service:
-    project_src: '/home/ubuntu/ansible_lab/docker'
-    build: yes
-    project_name: Ansible Lab
-  register: lab

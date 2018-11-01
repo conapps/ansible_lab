@@ -1,12 +1,12 @@
 - include_vars: 'secret_vars/{{ secret_vars_file_name }}.yml'
 
 - name: Copy the netplan config
-  copy:
-    src: 'files/netplan_master_config.yaml'
+  template:
+    src: 'files/netplan_master_config.yaml.j2'
     dest: '/etc/netplan'
-    mode: 0644
     owner: root
     group: root
+    mode: 0644
 
 - name: Reboot immediately if there was a change.
   shell: "sleep 5 && reboot"
