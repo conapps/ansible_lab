@@ -20,6 +20,7 @@
 - name: Configure the Hub AMI
   hosts: hub
   become: true
+  gather_facts: no
   tasks:
     - include_tasks: ./tasks/yang_hub_ami_configure.yml
   vars_files:
