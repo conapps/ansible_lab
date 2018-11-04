@@ -99,3 +99,6 @@ to_email: gmonne@conatel.com.uy
 subject: '{{lab_name | upper}} - Pod #{{lab_pod}} Ready'
 body: "{{lookup('template', '../templates/email.html.j2')}}"
 subtype: html
+
+lab_helpers_email: gmonne@conatel.com.uy
+lab_helpers_password: conatel
