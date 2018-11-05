@@ -73,7 +73,7 @@
 
       prompt
 
-- name: Install Python 2.7
+- name: Install Python 2.7 and putty-tools
   apt:
     update_cache: true
     name: '{{ packages }}'
@@ -81,6 +81,16 @@
   vars:
     packages:
       - python
+      - putty-tools
+
+- name: Convert .pem to .ppk
+  shell: 'puttygen /home/ubuntu/.ssh/{{aws_key_pair_name}}.pem -o /home/ubuntu/{{aws_key_pair_name}}.ppk -O private'
+
+- name: Get .ppk from the server
+  fetch:
+    src: '/home/ubuntu/{{aws_key_pair_name}}.ppk'
+    dest: 'secret_vars/{{aws_key_pair_name}}.ppk'
+    flat: yes
 
 - name: Sets the python version to 2.7
   set_fact:

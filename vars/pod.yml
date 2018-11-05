@@ -91,7 +91,8 @@ spoke2_dns_record: '{{lab_name}}-spoke2-{{aws_region}}-{{ lab_pod }}.{{lab_domai
 
 vars_file_path: 'secret_vars/{{lab_name}}_pod_{{aws_region}}_{{lab_pod}}.yml'
 text_files:
-  - '{{aws_key_pair}}'
+  - 'secret_vars/{{aws_key_pair_name}}.pem'
+  - 'secret_vars/{{aws_key_pair_name}}.ppk'
 lab_helpers_document_id: '{{lab_name}}_pod_{{aws_region}}_{{lab_pod}}'
 
 from_email: ansibletower@mail.conatest.click
